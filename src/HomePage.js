@@ -96,50 +96,44 @@ export default function SlaveryAbolitionPage() {
       {/* Second Section */}
       <section className="documents-section">
         <div className="container">
-          <h2 className="section-title">Lorem ipsum dolor sit amet</h2>
+          <h2 className="section-title">Handwritten Registries</h2>
 
-          <div className="documents-grid">
-            {/* Old Book Cover */}
-            <div className="image-card">
+          <div className="registry-grid">
               <img
-                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80"
+                src="images/registry_1.jpg"
                 alt="Aged book cover"
                 className="document-image"
               />
-            </div>
 
-            {/* Handwritten Document */}
-            <div className="image-card">
               <img
-                src="https://images.unsplash.com/photo-1568459522947-eb1bfea95668?w=800&q=80"
+                src="images/registry_2.jpg"
                 alt="Historical handwritten document"
                 className="document-image"
               />
-            </div>
 
-            {/* Old Books Stack */}
-            <div className="image-card">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                src="images/registry_3.jpg"
                 alt="Stack of old books"
+                max-width="100%"
                 className="document-image"
               />
-            </div>
           </div>
 
           <div className="centered-text">
-            <p className="text-content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a
-              est pellentesque, cursus eros vel, euismod nulla. Nunc vitae felis
-              nec velit pellentesque tempus. Etiam fermentum scelerisque orci,
-              vitae molestie erat laoreet vel. In hac habitasse platea dictumst.
-              Class aptent taciti sociosqu ad litora torquent per conubia
-              nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in
-              faucibus orci luctus et ultrices posuere cubilia curae; in vel
-              luctus lectus. Proin vitae felis facilisis, egestas felis
-              vulputate, tempus turpis. Nulla eleifend augue sapien, sit amet
-              ultrices turpis lacinia ac. Vestibulum in malesuada mi, at
-              scelerisque ligula.
+            <p>
+Handwritten registries, copies of which are now held in the T71 series of the National Archives 
+of the United Kingdom (TNA), yield detailed information about every individual enslaved in 
+Trinidad and St. Lucia. Following an 1813 Order in Council, enslavers were required to report 
+the first name, last name, “color,” employment, age, stature, country of origin, “marks,” or 
+distinguishing characteristics, and familial relations of each person enslaved in Trinidad; in 1815, 
+they did the same for St. Lucia.</p><br></br> 
+<p>In each island, Registrars and their clerks hand-copied this 
+information into one of two large books, each of which runs to as many as 800 pages: the 
+Registry of Plantation Slaves (i.e., people enslaved on agricultural estates) or the Registry of 
+Personal Slaves (i.e., people enslaved in more urban settings). In 1819, copies of the Registry 
+Books were sent to England, and in 1851 they were transferred to the Public Record Office (now 
+TNA). The registries can be freely accessed at TNA. All information made available on this site 
+is based on human-generated transcriptions of photographs of these original archival documents.  
             </p>
           </div>
         </div>
