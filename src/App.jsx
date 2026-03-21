@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import HomePage from './HomePage';
+import HomePage from './pages/HomePage.jsx';
+import Footer from './components/Footer.jsx';
 import './App.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       </nav>
 
       <HomePage />
+      <Footer />
     </div>
   );
 }
