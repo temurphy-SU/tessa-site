@@ -1,5 +1,6 @@
 import TableauOverviewEmbed from "../components/TableauOverviewEmbed";
-import TableauCropSelector from "../components/TableauCropSelector";
+// import TableauCropSelector from "../components/TableauCropSelector";
+import TableauCropSelectorV2 from "../components/TableauCropSelectorV2";
 
 function Overview() {
   return (
@@ -16,7 +17,7 @@ function Overview() {
         </div>
       </section>
 
-      <TableauCropSelector />
+      <TableauCropSelectorV2 />
 
       {/* Third Section */}
     </div>
