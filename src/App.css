@@ -244,7 +244,8 @@
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
   max-width: 300px;
   font-family: Montserrat, sans-serif;
-  margin: 50px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 #metric-card h3 {
@@ -364,6 +365,12 @@
   /* Overview Page */
   .spacer-flex {
     padding-bottom: 20px;
+  }
+
+  /* Plantation Page */
+
+  #plantation-selector {
+    border-radius: 0px;
   }
 }
 

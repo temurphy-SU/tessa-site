@@ -1,4 +1,4 @@
-import TableauCropSelectorV2 from "../components/TableauCropSelectorV2";
+import TableauCropSelector from "../components/TableauCropSelector";
 
 function PlantationPage() {
   return (
@@ -8,7 +8,7 @@ function PlantationPage() {
         <div className="container-plantation">
           <h1 className="main-title">Types of Plantations</h1>
 
-          <TableauCropSelectorV2 />
+          <TableauCropSelector />
         </div>
       </section>
 
