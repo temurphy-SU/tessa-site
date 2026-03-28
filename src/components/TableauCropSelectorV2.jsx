@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const cropInfo = {
   Sugar: {
@@ -15,6 +16,11 @@ const cropInfo = {
     label: "Cotton",
     description:
       "Cotton plantations... Nam egestas elementum sem ac tempor. Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. ",
+  },
+  Cacao: {
+    label: "Cacao",
+    description:
+      "Cacao plantations... Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. Nam egestas elementum sem ac tempor.  Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu.  ",
   },
 };
 
@@ -93,8 +99,8 @@ function TableauCropSelectorV2() {
   return (
     <div>
       {/* Separator */}
-      <section className="registry-section">
-        <div className="home-title-div spacer-flex">
+      <section>
+        <div id="plantation-selector">
           <h2>Select Type of Plantation for More Info</h2>
           <select
             id="crop-button"
@@ -108,78 +114,70 @@ function TableauCropSelectorV2() {
             ))}
           </select>
         </div>
-      </section>
 
-      {/* Third Section */}
-      <div className="container">
-        <div className="page-container">
-          <div className="content-grid">
-            {/* Metric Card */}
-            <div>
-              {metricData && (
+        {/* Third Section */}
+        <div className="container">
+          <div className="page-container">
+            <div className="content-grid">
+              {/* Metric Card */}
+              <div>
+                {metricData ? (
+                  <div id="metric-card">
+                    <h3>Number of {selectedCrop} Plantations</h3>
+                    <h2>{metricData.total.toLocaleString()}</h2>
+                    <p>Total Enslaved People</p>
+                    <hr />
+                    <p>African: {metricData.african.toLocaleString()}</p>
+                    <p>Creole: {metricData.creole.toLocaleString()}</p>
+                  </div>
+                ) : (
+                  <div id="metric-card">
+                    {" "}
+                    <AiOutlineLoading3Quarters
+                      style={{
+                        animation: "spin 1s linear infinite",
+                        fontSize: "2rem",
+                      }}
+                    />
+                    <p>Loading metrics...</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column Text */}
+              <div className="home-top-text">
+                <p>{cropInfo[selectedCrop].description}</p>
+              </div>
+            </div>
+
+            <div className="content-grid">
+              {/* Left Column Text */}
+              <div className="home-bottom-text">
+                <p>{cropInfo[selectedCrop].description}</p>
+              </div>
+
+              {/* Viz */}
+              <div style={{ overflow: "hidden", width: "100%" }}>
                 <div
                   style={{
-                    background: "white",
-                    borderRadius: "12px",
-                    padding: "1.5rem",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                    maxWidth: "300px",
-                    fontFamily: "Montserrat, sans-serif",
+                    transform: "scale(0.75)",
+                    transformOrigin: "top left",
+                    width: "133%",
                   }}
                 >
-                  <p style={{ fontSize: "0.75rem", color: "#666" }}>
-                    {selectedCrop} Plantations
-                  </p>
-                  <h2 style={{ fontSize: "2rem", margin: "0.25rem 0" }}>
-                    {metricData.total.toLocaleString()}
-                  </h2>
-                  <p style={{ fontSize: "0.85rem", color: "#444" }}>
-                    Total Enslaved People
-                  </p>
-                  <hr />
-                  <p style={{ fontSize: "0.85rem" }}>
-                    African: {metricData.african.toLocaleString()}
-                  </p>
-                  <p style={{ fontSize: "0.85rem" }}>
-                    Creole: {metricData.creole.toLocaleString()}
-                  </p>
+                  <tableau-viz
+                    ref={vizRef}
+                    src="https://public.tableau.com/views/TMurphyExShcarf/DBbycroptype"
+                    width="100%"
+                    height="750px"
+                    toolbar="hidden"
+                  />
                 </div>
-              )}
-            </div>
-
-            {/* Right Column Text */}
-            <div className="home-top-text">
-              <p>{cropInfo[selectedCrop].description}</p>
-            </div>
-          </div>
-
-          <div className="content-grid">
-            {/* Left Column Text */}
-            <div className="home-bottom-text">
-              <p>{cropInfo[selectedCrop].description}</p>
-            </div>
-
-            {/* Viz */}
-            <div style={{ overflow: "hidden", width: "100%" }}>
-              <div
-                style={{
-                  transform: "scale(0.75)",
-                  transformOrigin: "top left",
-                  width: "133%",
-                }}
-              >
-                <tableau-viz
-                  ref={vizRef}
-                  src="https://public.tableau.com/views/TMurphyExShcarf/DBbycroptype"
-                  width="100%"
-                  height="750px"
-                  toolbar="hidden"
-                />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
