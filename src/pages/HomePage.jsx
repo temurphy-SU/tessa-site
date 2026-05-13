@@ -96,7 +96,7 @@ function HomePage() {
             <div>
               <img
                 className="home-images"
-                src="/images/test_map.jpg"
+                src="/images/Lesser-Antilles-Map-created-by-Menno.tif.webp"
                 alt="Map of Carribean"
               />
               <p>

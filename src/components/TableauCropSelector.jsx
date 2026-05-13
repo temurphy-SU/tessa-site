@@ -1,26 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
+const imageFolderpath = "/images/";
+
 const cropInfo = {
   Sugar: {
     label: "Sugar",
-    description:
+    description1:
       "Sugar cane plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    description2:
+      "Second Sugar cane plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    imgPath: "plantation-sugar.jpg",
   },
   Coffee: {
     label: "Coffee",
-    description:
+    description1:
       "Coffee plantations Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. Nam egestas elementum sem ac tempor. Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.",
+    description2:
+      "Second coffee plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    imgPath: "plantation-coffee.jpg",
   },
   Cotton: {
     label: "Cotton",
-    description:
+    description1:
       "Cotton plantations... Nam egestas elementum sem ac tempor. Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. ",
+    description2:
+      "Second cotton plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    imgPath: "plantation-cotton.jpg",
   },
   Cacao: {
     label: "Cacao",
-    description:
+    description1:
       "Cacao plantations... Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. Nam egestas elementum sem ac tempor.  Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu.  ",
+    description2:
+      "Second cacao plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    imgPath: "plantation-cacao.jpg",
+  },
+  Tobacco: {
+    label: "Tobacco",
+    description1:
+      "Tobacco plantations... Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. Nam egestas elementum sem ac tempor.  Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu.  ",
+    description2:
+      "Second tobacco plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
+    imgPath: "plantation-tobacco.jpg",
   },
 };
 
@@ -121,11 +143,29 @@ function TableauCropSelector() {
         <div className="container">
           <div className="page-container">
             <div className="content-grid">
+              {/* Image Section */}
+              <div className="home-top-text">
+                <img
+                  className="plantation-images"
+                  src={imageFolderpath + cropInfo[selectedCrop].imgPath}
+                ></img>
+              </div>
+
+              {/* Right Column Text */}
+              <div className="home-top-text">
+                <p>{cropInfo[selectedCrop].description1}</p>
+              </div>
+            </div>
+
+            <div className="content-grid">
               {/* Metric Card */}
               <div>
                 {metricData ? (
                   <div id="metric-card">
-                    <h3>{selectedCrop} plantations total enslaved people.</h3>
+                    <h3>
+                      Total number of enslaved people on{" "}
+                      {selectedCrop.toLowerCase()} plantation.
+                    </h3>
                     <h2>{metricData.total.toLocaleString()}</h2>
                     <p>Totals by race</p>
                     <hr />
@@ -146,18 +186,6 @@ function TableauCropSelector() {
                 )}
               </div>
 
-              {/* Right Column Text */}
-              <div className="home-top-text">
-                <p>{cropInfo[selectedCrop].description}</p>
-              </div>
-            </div>
-
-            <div className="content-grid">
-              {/* Left Column Text */}
-              <div className="home-bottom-text">
-                <p>{cropInfo[selectedCrop].description}</p>
-              </div>
-
               {/* Viz */}
               <div style={{ overflow: "hidden", width: "100%" }}>
                 <div
@@ -176,6 +204,11 @@ function TableauCropSelector() {
                   />
                 </div>
               </div>
+            </div>
+
+            {/* Left Column Text */}
+            <div className="home-bottom-text">
+              <p>{cropInfo[selectedCrop].description2}</p>
             </div>
           </div>
         </div>
