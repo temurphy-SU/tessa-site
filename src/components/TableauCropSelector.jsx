@@ -76,8 +76,10 @@ function TableauCropSelector() {
 
         try {
           const dashboard = viz.workbook.activeSheet;
+          console.log("worksheets are:");
+          console.log(dashboard.worksheets);
           const cropSheet = dashboard.worksheets.find(
-            (ws) => ws.name === "Crop & Race",
+            (ws) => ws.name === "Number of people, origin (2)",
           );
           const tableData = await cropSheet.getSummaryDataAsync();
           cachedRows = tableData.data;
@@ -96,11 +98,13 @@ function TableauCropSelector() {
 
     const cropRows = allRows.filter((row) => row[0]?._value === selectedCrop);
     const total = cropRows.reduce((sum, row) => sum + (row[2]?._value || 0), 0);
+    console.log("total is:");
+    console.log(total);
     const african = cropRows
-      .filter((row) => row[1]?._value === "Black")
+      .filter((row) => row[1]?._value === "African")
       .reduce((sum, row) => sum + (row[2]?._value || 0), 0);
     const creole = cropRows
-      .filter((row) => row[1]?._value === "Mixed Race")
+      .filter((row) => row[1]?._value === "Creole")
       .reduce((sum, row) => sum + (row[2]?._value || 0), 0);
 
     setMetricData({ total, african, creole });
@@ -167,7 +171,7 @@ function TableauCropSelector() {
                       {selectedCrop.toLowerCase()} plantation.
                     </h3>
                     <h2>{metricData.total.toLocaleString()}</h2>
-                    <p>Totals by race</p>
+                    <p>Place of Origin</p>
                     <hr />
                     <p>African: {metricData.african.toLocaleString()}</p>
                     <p>Creole: {metricData.creole.toLocaleString()}</p>
