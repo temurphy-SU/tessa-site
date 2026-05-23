@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import Overview from "./pages/Overview.jsx";
 import Geography from "./pages/Geography.jsx";
 import PlantationPage from "./pages/PlantationPage.jsx";
+import ContactPage from "./pages/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import "./App.css";
 
@@ -49,13 +50,19 @@ function App() {
                 Plantations
               </NavLink>
               {/* CTA button is included here so it appears inside the mobile menu too */}
-              <button className="cta-button mobile-cta" onClick={closeMenu}>
+              <button
+                to="/contact"
+                className="cta-button mobile-cta"
+                onClick={closeMenu}
+              >
                 Get in Touch
               </button>
             </div>
 
             {/* CTA button — only visible on desktop via CSS */}
-            <button className="cta-button desktop-cta">Get in Touch</button>
+            <button to="/contact" className="cta-button desktop-cta">
+              Get in Touch
+            </button>
           </div>
         </nav>
 
@@ -64,6 +71,7 @@ function App() {
           <Route path="/overview" element={<Overview />} />
           <Route path="/geography" element={<Geography />} />
           <Route path="/plantation" element={<PlantationPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
       </div>

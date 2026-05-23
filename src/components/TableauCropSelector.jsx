@@ -109,6 +109,7 @@ function TableauCropSelector() {
     if (vizReady) {
       fetchDataForCrop(selectedCrop);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vizReady]);
 
   const handleCropChange = async (crop) => {
@@ -145,6 +146,11 @@ function TableauCropSelector() {
                 <img
                   className="plantation-images"
                   src={imageFolderpath + cropInfo[selectedCrop].imgPath}
+                  alt={
+                    "Historical image of people working on a " +
+                    selectedCrop +
+                    "plantation."
+                  }
                 ></img>
               </div>
 
