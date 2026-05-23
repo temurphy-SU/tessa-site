@@ -281,20 +281,22 @@
 /* Contact Page Styling */
 
 .contact-section {
-  background-color: var(--color-background);
+  background-color: #e5e7eb;
+  padding: 3rem 0;
   /* padding: 1rem 1rem 2rem 1rem; */
-  width: 100%;
+  /* width: 100%; */
   /* justify-content: center; */
 }
 
 .contact-header-div {
-  background-color: #b0c4b1;
+  background-color: var(--color-background);
   position: relative;
   overflow: visible; /* important — lets the image escape the div */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   height: 300px;
+  margin: 120px -30px 120px -30px;
   /* padding-left: 15%; */
 }
 
@@ -310,6 +312,18 @@
 
 .contact-text {
   padding-right: 100px;
+}
+
+.citation-text {
+  max-width: 1000px;
+  text-align: left;
+  align-self: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.citation-text h2 {
+  text-align: center;
 }
 
 /* Footer */
@@ -509,21 +523,6 @@ nav a {
   color: #2b5786;
 }
 
-/* a:link {
-  color: #2b5786;
-}
-
-a:hover {
-  color: #2b5786;
-} */
-
-/* button {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-} */
-
 /* ── Desktop: links laid out in a row ─────────────────────── */
 
 .nav-link {
@@ -619,5 +618,24 @@ a:hover {
     margin-top: 0.75rem;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /* Contact Page Specific info */
+
+  .headshot-image {
+    transform: scale(2);
+    margin: 0 0 20% 0;
+  }
+
+  .contact-header-div {
+    display: block;
+    text-align: center;
+    padding: 2%;
+    height: fit-content;
+    margin: 25% -8% 25% -8%;
+  }
+
+  .contact-text {
+    padding-right: 0px;
   }
 }
