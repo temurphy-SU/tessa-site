@@ -162,7 +162,6 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 16px;
-  max-width: 1200px;
   margin: 0 0 20px 0;
 }
 
@@ -237,8 +236,9 @@
   min-width: 80px;
   height: 32px; /* control the height directly */
   line-height: 1; /* prevent line height from inflating it */
-  appearance: none; /* remove browser default select styling */
-  -webkit-appearance: none;
+  /* remove browser default select styling */
+  /* appearance: none;
+  -webkit-appearance: none; */
 }
 
 /* Plantation Page */

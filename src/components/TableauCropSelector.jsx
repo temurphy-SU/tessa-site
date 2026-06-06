@@ -36,14 +36,6 @@ const cropInfo = {
       "Second cacao plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
     imgPath: "plantation-cacao.jpg",
   },
-  Tobacco: {
-    label: "Tobacco",
-    description1:
-      "Tobacco plantations... Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla. Donec risus erat, imperdiet id efficitur ac, porttitor non ante. Nunc condimentum erat et orci auctor iaculis. Morbi hendrerit eros vitae facilisis egestas. Nam egestas elementum sem ac tempor.  Ut sed nisl a arcu ornare efficitur in nec sapien. Mauris in volutpat libero, sit amet imperdiet ex. Aenean mattis dolor urna, ut efficitur nisi mattis et.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu.  ",
-    description2:
-      "Second tobacco plantations Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum auctor purus at malesuada. Cras vulputate purus augue, vel volutpat mauris lobortis eu. Suspendisse ullamcorper laoreet lacinia. Suspendisse at dui a ante auctor fermentum ac condimentum quam. Nullam bibendum justo a efficitur feugiat. Donec vestibulum vestibulum fringilla.",
-    imgPath: "plantation-tobacco.jpg",
-  },
 };
 
 function TableauCropSelector() {
@@ -123,7 +115,7 @@ function TableauCropSelector() {
       {/* Separator */}
       <section>
         <div id="plantation-selector">
-          <h2>Select Type of Plantation for More Info</h2>
+          <h2>Select Type of Plantation for More Information</h2>
           <select
             id="crop-button"
             value={selectedCrop}
@@ -166,11 +158,11 @@ function TableauCropSelector() {
                 {metricData ? (
                   <div id="metric-card">
                     <h3>
-                      Total number of enslaved people on{" "}
+                      Total number of people enslaved on{" "}
                       {selectedCrop.toLowerCase()} plantation.
                     </h3>
                     <h2>{metricData.total.toLocaleString()}</h2>
-                    <p>Place of Origin</p>
+                    <p>Origins</p>
                     <hr />
                     <p>African: {metricData.african.toLocaleString()}</p>
                     <p>Creole: {metricData.creole.toLocaleString()}</p>

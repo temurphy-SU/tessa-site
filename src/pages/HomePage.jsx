@@ -14,12 +14,12 @@ function HomePage() {
                 src="images/west_india_cutting_canes.jpg"
                 alt="Historic plantation scene"
               />
-              <a href="https://search.library.yale.edu/catalog/9945152293408651">
+              <a href="https://collections.britishart.yale.edu/catalog/alma:9961695553408651">
                 <i>
                   Bridgens, Richard, West India scenery with illustrations of
                   Negro character, the process of making sugar. from sketches
                   taken during a voyage to, and residence of seven years in, the
-                  island of Trinidad, 1836?
+                  island of Trinidad, 1836
                 </i>
               </a>
             </div>
@@ -100,7 +100,10 @@ function HomePage() {
                 alt="Map of Carribean"
               />
               <p>
-                <i>Map of the British Caribbean.</i>
+                <i>
+                  Map of the Caribbean with Puerto Rico and Lesser Antilles
+                  inset
+                </i>
               </p>
             </div>
           </div>
@@ -133,7 +136,11 @@ function HomePage() {
                 className="registry-image"
               />
               <p>
-                <i>Three views of [shelf mark].</i>
+                <i>
+                  Images from the TNA T 71 Series: T 71/501, Registry of
+                  Plantation Slaves, Trinidad, 1813 (left, below) and T 71/502,
+                  Registry of Personal Slaves, Trinidad, 1813 (above).
+                </i>
               </p>
             </div>
 
