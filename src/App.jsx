@@ -42,13 +42,14 @@ function App() {
               <NavLink to="/geography" className="nav-link" onClick={closeMenu}>
                 Geography
               </NavLink>
-              <NavLink
+              {/* TO ADD PLANTATION PAGE, UNCOMMENT FOLLOWING SECTION */}
+              {/* <NavLink
                 to="/plantation"
                 className="nav-link"
                 onClick={closeMenu}
               >
                 Plantations
-              </NavLink>
+              </NavLink> */}
               {/* CTA button is included here so it appears inside the mobile menu too */}
               <NavLink
                 to="/contact"
