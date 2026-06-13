@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# Slavery in the Age of Abolition Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contacts:
+
+| **Field**      | **Info**                  |
+| -------------- | ------------------------- |
+| _Authors_      | Jason Scharf              |
+| _Email_        | jason@cnydataventures.com |
+| _Last Updated_ | 06/2026                   |
+
+## Introduction
+
+This website was created in React using Create-React-App.
 
 ## Available Scripts
 
@@ -29,42 +39,55 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Site and Page Overviews
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+We made each page a React component. There are certain pages that have other React components if they were complicated (such as Tableau Vis embeds or the Tableau Crop Selector on the Plantation page). Images are all stored in the "images" folder.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### HomePage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Where we have an overview of the website, we are using CSS Grid for styling.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Geography
 
-## Learn More
+Here we are mainly embedding the Main Dashboard section of the TableauDashboard.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Geography
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Here we are mainly embedding the Map section of the TableauDashboard. You can select which Dashboard you embed into the page changing the last section of the url, in the case below it is the "Dashboard3" portion: [public.tableau.com/app/profile/tessa.murphy1162/viz/TMurphyExShcarf/Dashboard3](https://public.tableau.com/app/profile/tessa.murphy1162/viz/TMurphyExShcarf/Dashboard3)
 
-### Code Splitting
+### Plantations (currently hidden)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This page is the most complicated. Here we are using the TableauCropSelector component. This component let's us add whichever crops we want to include in the "cropInfo" object.
 
-### Analyzing the Bundle Size
+That object when selected will update the React component with the descriptions, images, metrics, and filtered Tableau Data Visualization (if desired and added back to the site).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+In this case we are loading the visualization, then once that is loaded, we are running the async function fetchDataForCrop. This parses the numbers in the visualization to only display what we want to display.
 
-### Making a Progressive Web App
+**NOTE**: I did it this way, because pulling the data directly from the data layer took loner and pulled every single record. Also, Tessa is planning on adding another islands worth of data, and I wanted this visualization to be able to update when that happens.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+When full data is in here, these values could be hard coded in if desired. Also, if we use a different visualization, this will need to be modified.
 
-### Advanced Configuration
+The visualiztion on this page is currently commented out. If you would like to return it, instructions on how to do so are in the TableauCropSelector.jsx component.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Contact Page
 
-### Deployment
+Similar layout to Overview, but we made the image extand pass the div and added some breakpoints to make it look better on tablet and mobile.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Styling
 
-### `npm run build` fails to minify
+This is in the App.css file, and is broken down primarily by page, and then the breakpoint (responsive web design) information is at the bottom of the file.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to add a new page
+
+1. You will create a new .jsx file under the "pages" folder. Recommend that you just copy a page that is similar to how you want it to look and then modify accordingly.
+2. In the App.jsx file you will need to import the page along with the path using "import {name} from "{file path}"
+3. Add this to the NavLink section
+4. Add this to the Routes also.
+
+## Test changes
+
+As you are making changes test them locally. When you are ready to push a new change, it is encouraged to run "npm run build" first to make sure that there are no errors and everything builds fine.
+
+Then when after you commit and push your code, netlify should automatically update the site with your changes.
+
+If there are errors, check the error logs in Netlify.
