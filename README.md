@@ -6,7 +6,7 @@
 | -------------- | ------------------------- |
 | _Authors_      | Jason Scharf              |
 | _Email_        | jason@cnydataventures.com |
-| _Last Updated_ | 06/2026                   |
+| _Last Updated_ | 6/2026                   |
 
 ## Introduction
 
