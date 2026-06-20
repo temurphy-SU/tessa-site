@@ -6,7 +6,7 @@
 | -------------- | ------------------------- |
 | _Authors_      | Jason Scharf              |
 | _Email_        | jason@cnydataventures.com |
-| _Last Updated_ | 6/2026                   |
+| _Last Updated_ | 6/2026                    |
 
 ## Introduction
 
@@ -63,7 +63,7 @@ That object when selected will update the React component with the descriptions,
 
 In this case we are loading the visualization, then once that is loaded, we are running the async function fetchDataForCrop. This parses the numbers in the visualization to only display what we want to display.
 
-**NOTE**: I did it this way, because pulling the data directly from the data layer took loner and pulled every single record. Also, Tessa is planning on adding another islands worth of data, and I wanted this visualization to be able to update when that happens.
+**NOTE**: I did it this way, because pulling the data directly from the data layer took longer and pulled every single record. Also, Tessa is planning on adding another islands worth of data, and I wanted this visualization to be able to update when that happens.
 
 When full data is in here, these values could be hard coded in if desired. Also, if we use a different visualization, this will need to be modified.
 
